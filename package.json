@@ -1,6 +1,6 @@
 {
   "name": "zola",
+  "description": "zola.ink’s CLI",
   "version": "0.1.0",
-  "scripts": {
-  }
+  "bin": "./index.js"
 }
