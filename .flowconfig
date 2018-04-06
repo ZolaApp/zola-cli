@@ -8,3 +8,4 @@
 
 [options]
 include_warnings=true
+module.use_strict=true
