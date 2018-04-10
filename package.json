@@ -35,15 +35,7 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "files": [
-    ".oclif.manifest.json",
-    "/bin",
-    "/src"
-  ],
   "homepage": "https://github.com/ZolaApp/zola-cli",
-  "keywords": [
-    "oclif"
-  ],
   "license": "MIT",
   "main": "src/index.js",
   "oclif": {
@@ -53,14 +45,11 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "ZolaApp/zola-cli",
-  "scripts": {
-    "postpack": "rm -f .oclif.manifest.json",
-    "posttest": "eslint .",
-    "prepack": "oclif-dev manifest && oclif-dev readme",
-    "test": "echo NO TESTS",
-    "version": "oclif-dev readme && git add README.md"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZolaApp/zola-cli.git"
   },
+  "scripts": {},
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
