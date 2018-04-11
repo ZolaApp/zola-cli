@@ -1,8 +1,55 @@
 {
-  "name": "zola",
-  "description": "zola.ink’s CLI",
-  "version": "0.1.1",
-  "bin": "./index.js",
+  "name": "zola-cli",
+  "description": "Zola CLI",
+  "version": "0.1.0",
+  "author": "ZolaApp",
+  "bin": {
+    "zola": "./bin/run"
+  },
+  "bugs": "https://github.com/ZolaApp/zola-cli/issues",
+  "dependencies": {
+    "@oclif/command": "^1.4.13",
+    "@oclif/config": "^1.6.0",
+    "@oclif/plugin-help": "^1.2.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-strict-mode": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "flow-bin": "^0.68.0",
+    "husky": "^0.15.0-rc.9",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1",
+    "@oclif/dev-cli": "^1.12.0",
+    "eslint-config-oclif": "^1.4.0",
+    "globby": "^8.0.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "homepage": "https://github.com/ZolaApp/zola-cli",
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "zola",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZolaApp/zola-cli.git"
+  },
+  "scripts": {},
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -21,22 +68,5 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "devDependencies": {
-    "babel-eslint": "^8.2.2",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-plugin-transform-strict-mode": "^6.24.1",
-    "eslint": "^4.19.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-flowtype": "^2.46.1",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "flow-bin": "^0.68.0",
-    "husky": "^0.15.0-rc.9",
-    "lint-staged": "^7.0.0",
-    "prettier": "^1.11.1"
   }
 }
