@@ -36,6 +36,6 @@
     "flow-bin": "0.73.0",
     "husky": "0.15.0-rc.13",
     "lint-staged": "7.1.2",
-    "prettier": "1.12.1"
+    "prettier": "1.13.0"
   }
 }
