@@ -37,5 +37,11 @@
     "husky": "0.15.0-rc.13",
     "lint-staged": "7.2.0",
     "prettier": "1.13.5"
+  },
+  "dependencies": {
+    "commander": "^2.15.1"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
