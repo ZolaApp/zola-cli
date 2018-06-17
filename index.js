@@ -7,6 +7,12 @@ const getRandom = (min, max) => Math.floor(Math.random() * max) + min
 
 program.version('0.1.1')
 
+const handleEmpty = () => {
+  console.log(
+    chalk.bgRed.white('Unknown argument. Run `zola --help` for instructions.\n')
+  )
+}
+
 const handleDefault = () => {
   console.log(
     chalk.bgYellow.black(
@@ -72,4 +78,10 @@ program
   .alias('p')
   .action(handleDefault)
 
+program.command('*').action(handleEmpty)
+
 program.parse(process.argv)
+
+if (program.args.length === 0) {
+  handleEmpty()
+}
