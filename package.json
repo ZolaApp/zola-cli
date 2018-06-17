@@ -1,25 +1,36 @@
 {
   "name": "zola",
-  "description": "zola.ink’s CLI",
+  "description": "CLI to interact with Zola",
   "version": "0.1.1",
-  "bin": "./index.js",
-  "husky": {
-    "hooks": {
-      "pre-commit": "flow check && lint-staged",
-      "pre-rewrite": "flow check && lint-staged"
-    }
+  "author": "@ZolaApp team",
+  "license": "BSD-3",
+  "engines": {
+    "node": ">=8.0.0"
   },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add",
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZolaApp/zola-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZolaApp/zola-cli/issues"
+  },
+  "homepage": "https://zola.ink",
+  "keywords": [
+    "zola",
+    "cli",
+    "zola-cli",
+    "translate",
+    "host",
+    "keys"
+  ],
+  "bin": "./index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.15.1",
+    "ora": "^2.1.0"
   },
   "devDependencies": {
     "babel-eslint": "8.2.3",
@@ -38,12 +49,22 @@
     "lint-staged": "7.2.0",
     "prettier": "1.13.5"
   },
-  "dependencies": {
-    "chalk": "^2.4.1",
-    "commander": "^2.15.1",
-    "ora": "^2.1.0"
+  "husky": {
+    "hooks": {
+      "pre-commit": "flow check && lint-staged",
+      "pre-rewrite": "flow check && lint-staged"
+    }
   },
-  "scripts": {
-    "start": "node index.js"
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
