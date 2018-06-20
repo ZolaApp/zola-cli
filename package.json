@@ -23,7 +23,9 @@
     "host",
     "keys"
   ],
-  "bin": "./index.js",
+  "bin": {
+    "zola": "./index.js"
+  },
   "scripts": {
     "start": "node index.js"
   },
