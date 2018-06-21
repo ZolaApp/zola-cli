@@ -5,7 +5,7 @@ const ora = require('ora')
 const wait = timeout => new Promise(resolve => setTimeout(resolve, timeout))
 const getRandom = (min, max) => Math.floor(Math.random() * max) + min
 
-program.version('0.1.1')
+program.version('0.2.0')
 
 const handleEmpty = () => {
   console.log(
