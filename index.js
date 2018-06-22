@@ -2,10 +2,18 @@
 const program = require('commander')
 const chalk = require('chalk')
 const ora = require('ora')
+const { handleLogin } = require('./src/login')
+const { handleLink } = require('./src/link')
+const { handleAdd } = require('./src/add')
+const { handleConfig } = require('./src/config')
+
 const wait = timeout => new Promise(resolve => setTimeout(resolve, timeout))
 const getRandom = (min, max) => Math.floor(Math.random() * max) + min
 
 program.version('0.2.0')
+
+// We need this because fetch has an issue with our SSL certs atm
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
 const handleEmpty = () => {
   console.log(
@@ -41,14 +49,20 @@ const handleExtract = () => {
 }
 
 program
-  .command('login')
+  .command('login <email>')
+  .alias('l')
   .description('Log in to your Zola account.')
-  .action(handleDefault)
+  .action(handleLogin)
 
 program
-  .command('link <projectName>')
+  .command('config')
+  .description('Show active zola configuration')
+  .action(handleConfig)
+
+program
+  .command('link <projectSlug>')
   .description('Link the current directory to your corresponding Zola project.')
-  .action(handleDefault)
+  .action(handleLink)
 
 program
   .command('extract')
@@ -59,12 +73,10 @@ program
   .action(handleExtract)
 
 program
-  .command('add <keyName> [defaultValue]')
-  .description(
-    'Allows you to add a key manually to your project. You can add a value for the default locale if you wish, as second argument.'
-  )
+  .command('add <keyName>')
+  .description('Allows you to add a key manually to your project.')
   .alias('a')
-  .action(handleDefault)
+  .action(handleAdd)
 
 program
   .command('remove <keyName>')
