@@ -5,7 +5,7 @@
     "author": "@ZolaApp team",
     "license": "BSD-3",
     "engines": {
-        "node": ">=8.0.0"
+        "node": ">=9.0.0"
     },
     "repository": {
         "type": "git",
@@ -75,6 +75,7 @@
     "zola": {
         "id": "1",
         "slug": "mark-43",
-        "name": "Mark 43"
+        "name": "Mark 43",
+        "defaultLocaleId": "15"
     }
 }
