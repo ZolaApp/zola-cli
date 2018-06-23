@@ -5,7 +5,7 @@ const babel = require('babel-core')
 const chalk = require('chalk')
 const ora = require('ora')
 const { retrieveProject } = require('./link')
-const { createApolloClient } = require('./createApolloClient')
+const { createApolloClient } = require('./login')
 
 const getAllFiles = async directory =>
   new Promise((resolve, reject) => {
