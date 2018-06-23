@@ -2,10 +2,10 @@
 const program = require('commander')
 const chalk = require('chalk')
 const ora = require('ora')
-const { handleLogin } = require('./src/login')
-const { handleLink } = require('./src/link')
-const { handleAdd } = require('./src/add')
-const { handleConfig } = require('./src/config')
+const { handleLogin } = require('./commands/login')
+const { handleLink } = require('./commands/link')
+const { handleAdd } = require('./commands/add')
+const { handleConfig } = require('./commands/config')
 
 const wait = timeout => new Promise(resolve => setTimeout(resolve, timeout))
 const getRandom = (min, max) => Math.floor(Math.random() * max) + min
