@@ -8,25 +8,23 @@ const handleConfig = async () => {
     const { email } = await retrieveLogin()
     const project = await retrieveProject()
 
-    console.log(chalk.green(`🔓 Logged in as : ${email}`))
+    console.log(chalk.green(`🔓  Logged in as: \`${email}\``))
 
     if (!project) {
       console.log(
         chalk.white(
-          `❌ No project linked, use zola link to set up a project for the current directory`
+          '❌  No project linked, use `zola link` to set up a project for the current directory.'
         )
       )
     } else {
       console.log(
         chalk.green(
-          `🔗 Current project link: ${project.name} ${zolaAppUrl}/project/${
+          `🔗  Current project linked: ${project.name} ${zolaAppUrl}/project/${
             project.slug
-          }`
+          }.\n`
         )
       )
     }
-
-    console.log('\n')
   } catch (err) {
     throw err
   }

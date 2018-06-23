@@ -54,6 +54,7 @@ const handleLink = async projectSlug => {
       console.log(chalk.bgRed.white(error.message))
     })
     console.log('\n')
+
     const json = await fs.readJson(path.join('./', 'package.json'))
     delete json.zola
     await fs.writeJson(path.join('./', 'package.json'), json, { spaces: 4 })
@@ -68,7 +69,7 @@ const handleLink = async projectSlug => {
     defaultLocaleId: data.locales[0].id
   }
   await fs.writeJson(path.join('./', 'package.json'), json, { spaces: 4 })
-  console.log(chalk.green(`🔗 Successfully linked to project ${data.name}\n`))
+  console.log(chalk.green(`🔗  Successfully linked to project ${data.name}\n`))
   process.exit(0)
 }
 

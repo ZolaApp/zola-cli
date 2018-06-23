@@ -9,7 +9,7 @@ const handleAdd = async (keyName, defaultValue) => {
   if (!project) {
     console.log(
       chalk.white(
-        `❌ No project linked, use zola link to set up a project for the current directory`
+        '❌  No project linked, use `zola link` to set up a project for the current directory.'
       )
     )
     process.exit(1)
@@ -47,7 +47,7 @@ const handleAdd = async (keyName, defaultValue) => {
 
   console.log(
     chalk.green(
-      `🔑 Successfully added key "${keyName}" to project ${project.name}\n`
+      `🔑  Successfully added key \`${keyName}\` to project ${project.name}.\n`
     )
   )
   process.exit(0)

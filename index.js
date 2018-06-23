@@ -1,19 +1,11 @@
 #!/usr/bin/env node
 const program = require('commander')
 const chalk = require('chalk')
-const ora = require('ora')
 const { handleLogin } = require('./commands/login')
 const { handleLink } = require('./commands/link')
 const { handleAdd } = require('./commands/add')
 const { handleConfig } = require('./commands/config')
-
-const wait = timeout => new Promise(resolve => setTimeout(resolve, timeout))
-const getRandom = (min, max) => Math.floor(Math.random() * max) + min
-
-program.version('0.2.0')
-
-// We need this because fetch has an issue with our SSL certs atm
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
+const { handleExtract } = require('./commands/extract')
 
 const handleEmpty = () => {
   console.log(
@@ -29,24 +21,10 @@ const handleDefault = () => {
   )
 }
 
-const handleExtract = () => {
-  const keysCount = getRandom(50, 120)
-  const parsing = ora('Parsing project…')
-  const uploading = ora('Uploading…')
+// We need this because fetch has an issue with our SSL certs atm
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
-  parsing.start()
-
-  wait(3000).then(() => {
-    parsing.text = `${keysCount} new keys found…`
-    parsing.succeed()
-    uploading.start()
-
-    wait(1000).then(() => {
-      uploading.text = `${keysCount} keys uploaded. 🚀`
-      uploading.succeed()
-    })
-  })
-}
+program.version('0.2.0')
 
 program
   .command('login <email>')

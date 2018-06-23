@@ -44,15 +44,12 @@ const retrieveLogin = async () => {
 const handleLogin = async email => {
   const question = {
     type: 'password',
-    message: `🔐 Enter password for user ${email}`,
+    message: `🔐  Enter password for user with e-mail: \`${email}\``,
     name: 'password'
   }
 
   const { password } = await inquirer.prompt(question)
-  const fetch = createApolloFetch({
-    uri: zolaApiUrl
-  })
-
+  const fetch = createApolloFetch({ uri: zolaApiUrl })
   const res = await fetch({
     query: `mutation LoginUser($email: String!, $password: String!) {
     loginUser(email: $email, password: $password) {
@@ -93,17 +90,14 @@ const handleLogin = async email => {
       email,
       token
     })
-    console.log(chalk.green('Login successful 🔓\n'))
+    console.log(chalk.green('🔓  Login successful.\n'))
     process.exit(0)
   }
 }
 
 const createApolloClient = async () => {
   const { token } = await retrieveLogin()
-
-  const fetch = createApolloFetch({
-    uri: zolaApiUrl
-  })
+  const fetch = createApolloFetch({ uri: zolaApiUrl })
 
   fetch.use(({ request, options }, next) => {
     if (!options.headers) {
