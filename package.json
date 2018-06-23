@@ -33,6 +33,8 @@
     "apollo-fetch": "^0.7.0",
     "babel-core": "^6.26.3",
     "babel-plugin-react-intl-krzkaczor": "^2.4.1",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "chalk": "^2.4.1",
