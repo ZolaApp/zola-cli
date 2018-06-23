@@ -11,7 +11,7 @@ const getAllFiles = async directory =>
   new Promise((resolve, reject) => {
     const items = []
 
-    walk(process.env.INIT_CWD)
+    walk(process.cwd())
       .on('data', item => {
         const { path } = item
 
