@@ -1,7 +1,7 @@
 {
   "name": "zola",
   "description": "CLI to interact with Zola",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "author": "@ZolaApp team",
   "license": "BSD-3",
   "engines": {
