@@ -63,6 +63,7 @@ const handleLogin = async email => {
   }`,
     variables: { email, password }
   })
+  await fs.ensureFile(path.join(configDir, 'config.json'))
   await fs.writeJson(path.join(configDir, 'config.json'), {
     email: '',
     token: ''
