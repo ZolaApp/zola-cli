@@ -20,7 +20,7 @@ const handleConfig = async () => {
     } else {
       console.log(
         chalk.green(
-          `🔗  Current project linked: ${project.name} ${zolaAppUrl}/project/${
+          `🔗  Current project linked: ${project.name} ${zolaAppUrl}project/${
             project.slug
           }.\n`
         )
