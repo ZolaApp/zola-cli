@@ -57,7 +57,7 @@ const uploadKeys = async keys => {
   const fetch = await createApolloClient()
   const project = await retrieveProject()
   const response = await fetch({
-    query: `query addTranslationKeysToProject($projectId: String!, keys: [String]) {
+    query: `query addTranslationKeysToProject($projectId: String!, $keys: [String]) {
       addTranslationKeysToProject(projectId: $projectId, keys: $keys) {
         status
         errors {
