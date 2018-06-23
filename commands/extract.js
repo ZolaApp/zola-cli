@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { flatten, uniq } = require('lodash')
 const walk = require('klaw')
 const babel = require('babel-core')

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const path = require('path')
 const homeDir = require('os').homedir()
 const fs = require('fs-extra')

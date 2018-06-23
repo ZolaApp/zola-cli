@@ -24,7 +24,7 @@ const handleDefault = () => {
 // We need this because fetch has an issue with our SSL certs atm
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
-program.version('0.2.0')
+program.version('0.3.0')
 
 program
   .command('login <email>')
