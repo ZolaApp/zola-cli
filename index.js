@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 const program = require('commander')
 const chalk = require('chalk')
-const ora = require('ora')
-const wait = timeout => new Promise(resolve => setTimeout(resolve, timeout))
-const getRandom = (min, max) => Math.floor(Math.random() * max) + min
-
-program.version('0.2.0')
+const { handleLogin } = require('./commands/login')
+const { handleLink } = require('./commands/link')
+const { handleAdd } = require('./commands/add')
+const { handleConfig } = require('./commands/config')
+const { handleExtract } = require('./commands/extract')
 
 const handleEmpty = () => {
   console.log(
@@ -21,34 +21,26 @@ const handleDefault = () => {
   )
 }
 
-const handleExtract = () => {
-  const keysCount = getRandom(50, 120)
-  const parsing = ora('Parsing project…')
-  const uploading = ora('Uploading…')
+// We need this because fetch has an issue with our SSL certs atm
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
-  parsing.start()
-
-  wait(3000).then(() => {
-    parsing.text = `${keysCount} new keys found…`
-    parsing.succeed()
-    uploading.start()
-
-    wait(1000).then(() => {
-      uploading.text = `${keysCount} keys uploaded. 🚀`
-      uploading.succeed()
-    })
-  })
-}
+program.version('0.4.1')
 
 program
-  .command('login')
+  .command('login <email>')
+  .alias('l')
   .description('Log in to your Zola account.')
-  .action(handleDefault)
+  .action(handleLogin)
 
 program
-  .command('link <projectName>')
+  .command('config')
+  .description('Show active zola configuration')
+  .action(handleConfig)
+
+program
+  .command('link <projectSlug>')
   .description('Link the current directory to your corresponding Zola project.')
-  .action(handleDefault)
+  .action(handleLink)
 
 program
   .command('extract')
@@ -59,12 +51,10 @@ program
   .action(handleExtract)
 
 program
-  .command('add <keyName> [defaultValue]')
-  .description(
-    'Allows you to add a key manually to your project. You can add a value for the default locale if you wish, as second argument.'
-  )
+  .command('add <keyName>')
+  .description('Allows you to add a key manually to your project.')
   .alias('a')
-  .action(handleDefault)
+  .action(handleAdd)
 
 program
   .command('remove <keyName>')
