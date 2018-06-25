@@ -21,7 +21,7 @@ const handleDefault = () => {
   )
 }
 
-program.version('0.4.1')
+program.version('0.4.2')
 
 program
   .command('login <email>')
